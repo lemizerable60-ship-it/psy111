@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PsychoSuite</title>
+    <base href="/PsychoSuite/">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="manifest" href="./manifest.json">
+    <meta name="theme-color" content="#111827">
+    <style>
+        :root {
+            --primary-color: #3b82f6; /* blue-500 */
+        }
+        .bg-primary-100 { background-color: #dbeafe; }
+        .dark .bg-primary-900 { background-color: #1e3a8a; }
+        .bg-primary-600 { background-color: var(--primary-color); }
+        .hover\:bg-primary-700:hover { background-color: #2563eb; }
+        .text-primary-600 { color: var(--primary-color); }
+        .border-primary-500 { border-color: var(--primary-color); }
+        .focus\:ring-primary-500:focus { --tw-ring-color: var(--primary-color); }
+        body {
+            background-color: #f3f4f6;
+            color: #1f2937;
+        }
+        .dark body {
+            background-color: #111827;
+            color: #d1d5db;
+        }
+        /* Простой костыль для автоподгонки высоты textarea */
+        textarea {
+            field-sizing: content;
+        }
+    </style>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div id="root"></div>
+    <script>
+      // Управление темой
+      if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark')
+      } else {
+        document.documentElement.classList.remove('dark')
+      }
+    </script>
+    <script src="./config.js"></script>
+    <script type="module" src="./index.js"></script>
+    <script src="./sw-register.js"></script>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
