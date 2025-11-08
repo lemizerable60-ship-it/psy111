@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PsychoSuite</title>
-    <base href="/PsychoSuite/">
+    <!-- <base href="/PsychoSuite/">  НЕТ base! -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="manifest" href="./manifest.json">
+    <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#111827">
     <style>
         :root {
-            --primary-color: #3b82f6; /* blue-500 */
+            --primary-color: #3b82f6;
         }
         .bg-primary-100 { background-color: #dbeafe; }
         .dark .bg-primary-900 { background-color: #1e3a8a; }
@@ -27,26 +27,24 @@
             background-color: #111827;
             color: #d1d5db;
         }
-        /* Простой костыль для автоподгонки высоты textarea */
         textarea {
             field-sizing: content;
         }
     </style>
-<link rel="stylesheet" href="/index.css">
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
     <div id="root"></div>
     <script>
-      // Управление темой
       if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         document.documentElement.classList.add('dark')
       } else {
         document.documentElement.classList.remove('dark')
       }
     </script>
-    <script src="./config.js"></script>
-    <script type="module" src="./index.js"></script>
-    <script src="./sw-register.js"></script>
-<script type="module" src="/index.tsx"></script>
+    <script src="config.js"></script>
+    <script type="module" src="index.js"></script>
+    <script src="sw-register.js"></script>
+    <!-- НЕ подключай тут .tsx или с абсолютным слэшем! -->
 </body>
 </html>
